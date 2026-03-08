@@ -27,34 +27,44 @@ It includes customer management, product stock tracking, invoice generation, and
 
 ---
 
-<!-- ## 📸 Screenshots
-- Dashboard with charts and alerts  
-- Invoice management  
-- Customer and product management  
-
-*(Add screenshots here to visually showcase your project.)* -->
-
----
-
 ## ⚙️ Installation
+
+### Environment Variables
+
+**Client** (`.env` in `client/` directory):
+```
+VITE_DASHBOARD_ENDPOINT=yourendpoint/dashboard
+VITE_USER_ENDPOINT=yourendpoint/user
+VITE_PRODUCT_ENDPOINT=yourendpoint/product
+VITE_CUSTOMER_ENDPOINT=yourendpoint/customer
+VITE_INVOICE_ENDPOINT=yourendpoint/invoice
+```
+
+**Server** (`.env` in `server/` directory):
+```
+PORT=your_port_number
+MONGO_URI=your_mongo_uri
+SALT=salt_number
+SECRET_KEY=your_secret_key
+CLIENT_URL=frontend_url
+```
+
+### Setup Steps
 ```bash
 # Clone repo
 git clone https://github.com/yourusername/inventory-dashboard.git
-
-# Install dependencies
-```bash
-
-
 cd inventory-dashboard
 
-
+# Frontend
 cd client
 npm install
 npm run dev
 
+# Backend (in new terminal)
 cd server
 npm install
 npm run dev
+```
 
 ---
 
@@ -86,3 +96,4 @@ The server includes a Jest-powered test suite covering authentication, customers
 > ⚠️ Tests assume a running MongoDB instance and will create/delete records. Use a separate test database to avoid corrupting production data.
 
 ---
+
