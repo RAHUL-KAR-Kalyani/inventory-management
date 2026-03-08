@@ -86,7 +86,7 @@ const loginController = async (req, res) => {
             role: user.role
         }
 
-        return res.status(200).cookie("token", token, { maxAge: 1 * 24 * 60 * 60 * 1000, httpOnly: true, sameSite: 'strict' }).json({
+        return res.status(200).cookie("token", token, { maxAge: 1 * 24 * 60 * 60 * 1000, httpOnly: true, sameSite: 'none' }).json({
             message: `Welcome ${user.name} !`,
             token,
             user,
@@ -124,10 +124,10 @@ const profileController = async (req, res) => {
 
 const logoutController = async (req, res) => {
     try {
-        return res.status(200).cookie("token", "", { maxAge: 0 }).json({
+        return res.status(200).cookie("token", "", { maxAge: 0, httpOnly: true, secure: true, sameSite: "none" }).json({
             message: "Logged out successfully",
             success: true
-        })
+        });
 
     } catch (error) {
         console.log("Error", error);
