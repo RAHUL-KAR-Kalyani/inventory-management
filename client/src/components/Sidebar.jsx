@@ -14,7 +14,7 @@ const Sidebar = ({ open, setOpen }) => {
 
     return (
         <div>
-            <div className={`bg-gray-900 sidebar-z-index text-white h-full fixed top-0 left-0 p-5 pt-16 w-64 transition-transform duration-300 ${open ? "translate-x-0" : "-translate-x-full"} md:translate-x-0`}>
+            <div className={`bg-gray-900 sidebar-z-index text-white h-full fixed top-2 left-0 p-5 pt-16 w-64 transition-transform duration-300 ${open ? "translate-x-0" : "-translate-x-full"} md:translate-x-0`}>
                 <nav className="space-y-3">
                     {menuItems.map((item) => (
                         <Link to={item.path} key={item.name} className="flex items-center gap-3 p-3 rounded-lg cursor-pointer hover:bg-gray-700 transition" onClick={() => setOpen(false)} >
